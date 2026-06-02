@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimsz Docs | API Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>Dimsz<span>Docs</span></h2>
+            <p class="logo-sub">API Gateway v4.0</p>
+        </div>
+        
+        <nav class="nav">
+            <div class="nav-section">
+                <h3>Getting Started</h3>
+                <ul>
+                    <li class="active"><a href="#" data-section="overview">Overview</a></li>
+                    <li><a href="#" data-section="auth">Authentication</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>AI</h3>
+                <ul>
+                    <li><a href="#" data-endpoint="ai-chatgpt">POST /ai/chatgpt</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="#" data-endpoint="tools-removebg">GET /tools/remove</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Anime</h3>
+                <ul>
+                    <li><a href="#" data-endpoint="anime-search">GET /anime/search</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Random</h3>
+                <ul>
+                    <li><a href="#" data-endpoint="random-pap">GET /random/pap</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Overview Section -->
+        <div id="overview" class="section active">
+            <h1>Dokumentasi API</h1>
+            <p class="subtitle">Platform backend terpadu — AI, anime streaming, downloader, canvas, SMM tools, dan banyak lagi.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Endpoint</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">Kategori</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">REST</div>
+                    <div class="stat-label">Protokol</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">JSON</div>
+                    <div class="stat-label">Format</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Auth Section -->
+        <div id="auth" class="section">
+            <h1>Authentication</h1>
+            <p>Gunakan API Key untuk mengakses semua endpoint.</p>
+            <div class="playground" style="margin-top: 20px; padding: 20px;">
+                <code style="background: #1a1a1a; padding: 12px; display: block; border-radius: 8px;">
+                    key=YOUR_API_KEY
+                </code>
+                <p style="margin-top: 16px;">Dapatkan API Key dengan menghubungi admin Dimsz.</p>
+            </div>
+        </div>
+        
+        <!-- Endpoint ChatGPT -->
+        <div id="endpoint-ai-chatgpt" class="section endpoint-section">
+            <div class="endpoint-header">
+                <span class="method method-post">POST</span>
+                <span class="endpoint-url">/ai/chatgpt</span>
+            </div>
+            <h2>ChatGPT Chat</h2>
+            <p>Chat dengan model GPT via Dimsz API.</p>
+            
+            <h3>Parameters</h3>
+            <table class="params-table">
+                <thead>
+                    <tr><th>Nama</th><th>Tipe</th><th>Wajib</th><th>Keterangan</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>text</td><td>string</td><td>✓ required</td><td>Teks pertanyaan / prompt</td></tr>
+                    <tr><td>key</td><td>string</td><td>✓ required</td><td>API Key Dimsz</td></tr>
+                </tbody>
+            </table>
+            
+            <h3>Try it now</h3>
+            <div class="playground">
+                <div class="playground-inputs">
+                    <div class="input-group">
+                        <label>Text</label>
+                        <input type="text" id="chatgpt-text" placeholder="Halo AI!" value="Apa kabar?">
+                    </div>
+                    <div class="input-group">
+                        <label>API Key</label>
+                        <input type="password" id="chatgpt-key" placeholder="Your API Key">
+                    </div>
+                    <button class="btn-test" onclick="testEndpoint('ai-chatgpt')">Test →</button>
+                </div>
+                <div class="playground-response">
+                    <div class="response-header">Response</div>
+                    <pre id="response-ai-chatgpt" class="response-content">Menunggu...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Endpoint Remove Background -->
+        <div id="endpoint-tools-removebg" class="section endpoint-section">
+            <div class="endpoint-header">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-url">/tools/remove</span>
+            </div>
+            <h2>Remove Background</h2>
+            <p>Hapus background gambar secara otomatis menggunakan AI. Input URL gambar, output PNG transparan.</p>
+            
+            <h3>Parameters</h3>
+            <table class="params-table">
+                <thead>
+                    <tr><th>Nama</th><th>Tipe</th><th>Wajib</th><th>Keterangan</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>url</td><td>string</td><td>✓ required</td><td>URL gambar (jpg/png/webp)</td></tr>
+                </tbody>
+            </table>
+            
+            <h3>Try it now</h3>
+            <div class="playground">
+                <div class="playground-inputs">
+                    <div class="input-group">
+                        <label>Image URL</label>
+                        <input type="text" id="removebg-url" placeholder="https://example.com/image.jpg" value="https://picsum.photos/400/300">
+                    </div>
+                    <button class="btn-test" onclick="testEndpoint('tools-removebg')">Test →</button>
+                </div>
+                <div class="playground-response">
+                    <div class="response-header">Response (Image URL)</div>
+                    <pre id="response-tools-removebg" class="response-content">Menunggu...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Endpoint Anime Search -->
+        <div id="endpoint-anime-search" class="section endpoint-section">
+            <div class="endpoint-header">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-url">/anime/search</span>
+            </div>
+            <h2>Anime Search</h2>
+            <p>Mencari judul anime melalui database Dimsz.</p>
+            
+            <h3>Parameters</h3>
+            <table class="params-table">
+                <thead>
+                    <tr><th>Nama</th><th>Tipe</th><th>Wajib</th><th>Keterangan</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>search</td><td>string</td><td>✓ required</td><td>Judul anime yang dicari</td></tr>
+                </tbody>
+            </table>
+            
+            <h3>Try it now</h3>
+            <div class="playground">
+                <div class="playground-inputs">
+                    <div class="input-group">
+                        <label>Search</label>
+                        <input type="text" id="anime-search" placeholder="Naruto, One Piece, etc" value="naruto">
+                    </div>
+                    <button class="btn-test" onclick="testEndpoint('anime-search')">Test →</button>
+                </div>
+                <div class="playground-response">
+                    <div class="response-header">Response</div>
+                    <pre id="response-anime-search" class="response-content">Menunggu...</pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Endpoint Random PAP -->
+        <div id="endpoint-random-pap" class="section endpoint-section">
+            <div class="endpoint-header">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-url">/random/pap</span>
+            </div>
+            <h2>Random PAP</h2>
+            <p>Mengambil gambar PAP (Photo A Profile) secara acak dari koleksi Dimsz.</p>
+            
+            <h3>No parameters</h3>
+            
+            <div class="playground">
+                <button class="btn-test" onclick="testEndpoint('random-pap')">Get Random PAP →</button>
+                <div class="playground-response">
+                    <div class="response-header">Result</div>
+                    <div id="response-random-pap" class="response-content">Menunggu...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
